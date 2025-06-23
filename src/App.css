@@ -36,7 +36,8 @@ border: #00e5ff 10px solid;
 }
 
 img {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   height: auto;
   border-radius: 20px;
  animation: float 3s ease-in-out infinite;
