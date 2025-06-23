@@ -10,126 +10,122 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
-
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-
 .maindiv {
-  text-align: center;
-  padding: 40px 20px;
-  width: 130vh;
-  height: 100vh;
-  margin: auto;
-  
-border: #00e5ff 10px solid;
-  background: rgba(12, 11, 11, 0.537); /* dark transparent layer */
-  backdrop-filter: blur(10px);   /* actual blur effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  width: 90vw;
+  max-width: 98vh;           /* ⬅️ Increase from 350–400 to 500+ */
+  min-height: 98vh;           /* ⬅️ Maintain vertical height */
+  padding: 30px 20px;
+
+  background: rgba(12, 11, 11, 0.537);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid #00ffbf;
+  box-shadow: 0 0 80px rgb(6, 230, 255);
+  border-radius: 20px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+
+  box-sizing: border-box;
+  margin: auto;
 }
 
-img {
+
+/* Robot image */
+.robot-img {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   height: auto;
   border-radius: 20px;
- animation: float 3s ease-in-out infinite;
- filter: drop-shadow(0 0 30px rgb(29, 232, 255));
-
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgb(29, 232, 255));
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
+
+.robot-img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 80px rgb(12, 255, 255));
+}
+
 @keyframes float {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-50px); }
   100% { transform: translateY(0); }
 }
 
-img:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-  animation: float 1s ease-in-out infinite;
-  filter: drop-shadow(0 0 80px rgb(12, 255, 255));
-  width: 1210px;
-}
-
+/* Headline */
 h1 {
-  font-size: 7rem;
+  font-size: clamp(6rem, 5vw, 5rem);
   margin-bottom: 20px;
   background: linear-gradient(to right, #00e5ff, #00ffcc);
   -webkit-background-clip: text;
-color: transparent;
-text-decoration: solid;
-
-  
+  color: transparent;
+  text-align: center;
 }
-h1 :hover {
+
+h1:hover {
   background: linear-gradient(to right, #b3fff0, #13e4fc);
   -webkit-background-clip: text;
-   filter: drop-shadow(0 0 80px rgb(12, 255, 255));
   color: transparent;
+  filter: drop-shadow(0 0 80px rgb(12, 255, 255));
 }
 
+/* Button */
 button {
-  background-color: #1e1e1e;
+  background-color: #23242417;
   color: #00d9ff;
   border: 2px solid #00ffcc;
   padding: 12px 24px;
-  font-size: 4rem;
+  font-size: clamp(4.2rem, 3vw, 3rem);
   border-radius: 30px;
   margin: 30px;
-  cursor: pointer; filter: drop-shadow(0 0 0px rgb(12, 255, 255));
+  cursor: pointer;
+  filter: drop-shadow(0 0 0px rgb(12, 255, 255));
+  transition: all 0.3s ease;
 }
 
 button:hover {
   background-color: #00e5ff;
   color: #000;
-   filter: drop-shadow(0 0 50px rgb(12, 255, 255));
+  filter: drop-shadow(0 0 80px rgb(12, 255, 255));
 }
 
+/* User and Bot Message Text */
 p {
-  max-width: 80%;
-  font-size: 5rem;
+  max-width: 90%;
+  font-size: clamp(3rem, 2.5vw, 2rem);
   margin-top: 10px;
-  background: rgba(0, 0, 0, 0.055);
-  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
   border-radius: 10px;
-   filter: drop-shadow(0 0 10px rgb(12, 255, 255));
+  filter: drop-shadow(0 0 10px rgb(12, 255, 255));
+  text-align: center;
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .maindiv {
-    width: 100vw;
-    height: auto;
     padding: 20px;
   }
 
-  img {
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    animation: float 3s ease-in-out infinite, shine 4s linear infinite;
-  }
-
-  h1 {
-    font-size: 2.5rem;
+  .robot-img {
+    max-width: 300px;
   }
 
   button {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 10px 20px;
-    border-radius: 16px;
-    margin: 10px;
+    margin: 20px;
   }
 
   p {
     font-size: 1.2rem;
     padding: 10px;
-    margin-top: 10px;
   }
 }

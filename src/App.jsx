@@ -55,7 +55,8 @@ function App() {
     
     <div className="maindiv">
        <h1>🎙️  AI Assistant</h1>
-      <img src={ai} alt="AI" />
+      <img src={ai} alt="AI Bot" className="robot-img" />
+
      
       <button onClick={startListening}>🎤 Speak</button>
       <button onClick={toggleLanguage}>🌐 {language === 'en-IN' ? 'Switch to Hindi' : 'Switch to English'}</button>
