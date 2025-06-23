@@ -128,4 +128,7 @@ p {
     font-size: 1.2rem;
     padding: 10px;
   }
+  h1 {
+    font-size: 3rem;
+  }
 }
